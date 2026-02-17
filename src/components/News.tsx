@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Spaceflight } from "../types";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const url: string = "https://api.spaceflightnewsapi.net/v4/articles";
@@ -30,6 +30,16 @@ const News = () => {
     return (
         <div className="">
             <h1 className="text-center">Space News</h1>
+            {!data && (
+                <div className="text-center">
+                    <Spinner
+                        animation="border"
+                        role="status"
+                        className="my-3 mx-auto">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </div>
+            )}
             {data?.results.map((result) => {
                 return (
                     <div

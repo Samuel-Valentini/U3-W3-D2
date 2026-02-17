@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import type { SingleArticle } from "../types";
+import { Spinner } from "react-bootstrap";
 
 const NewsDetail = () => {
     const [artData, setArtData] = useState<null | SingleArticle>(null);
@@ -31,6 +32,11 @@ const NewsDetail = () => {
     return (
         <>
             <div>
+                {!artData && (
+                    <Spinner animation="border" role="status" className="m-3">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                )}
                 <h2>{artData?.title}</h2>
                 <div className="d-flex align-items-center gap-3">
                     <div>
