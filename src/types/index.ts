@@ -17,6 +17,7 @@ export interface Result {
     updated_at: Date;
     featured: boolean;
     launches: Launch[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     events: any[];
 }
 
