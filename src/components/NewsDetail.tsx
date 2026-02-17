@@ -42,6 +42,10 @@ const NewsDetail = () => {
                     </div>
                     <div className="" style={{ textAlign: "justify" }}>
                         <span>{artData?.summary}</span>
+                        Read at:{" "}
+                        <a href={artData?.url} target="_blank">
+                            {artData?.news_site}
+                        </a>
                     </div>
                 </div>
             </div>
