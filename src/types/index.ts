@@ -56,7 +56,7 @@ export interface SingleArticle {
 
 export interface Author {
     name: string;
-    socials: any;
+    socials: Socials | null;
 }
 
 export interface Launch {
