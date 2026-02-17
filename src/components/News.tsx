@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import type { Spaceflight } from "../types";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const url: string = "https://api.spaceflightnewsapi.net/v4/articles";
 
 const News = () => {
     const [data, setData] = useState<null | Spaceflight>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(url)
@@ -43,6 +46,14 @@ const News = () => {
                             </div>
                             <div className="" style={{ textAlign: "justify" }}>
                                 <span>{result.summary}</span>
+                            </div>
+                            <div className="align-self-start">
+                                <Button
+                                    onClick={() => {
+                                        navigate("/" + result.id);
+                                    }}>
+                                    Details
+                                </Button>
                             </div>
                         </div>
                     </div>
